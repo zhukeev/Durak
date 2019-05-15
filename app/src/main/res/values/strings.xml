@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Durak_OD</string>
+    <string name="login">Login</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="password">Password</string>
+    <string name="number">Number</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notification</string>
+    <string name="sign_in">Sign in</string>
+</resources>

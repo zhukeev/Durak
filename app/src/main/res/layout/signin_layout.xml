@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/logo_login_page"
+        android:layout_width="175.5dp"
+        android:layout_height="136dp"
+        android:src="@drawable/logo_splash"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"/>
+
+    <TextView
+        android:text="Login"
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@id/ET_login"
+        app:layout_constraintBottom_toTopOf="@id/ET_login"
+        />
+
+
+    <EditText
+        android:id="@+id/ET_login"
+        android:textColor="#F2F2F2"
+        app:layout_constraintTop_toBottomOf="@id/logo_login_page"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="Password"
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@id/ET_password"
+        app:layout_constraintBottom_toTopOf="@id/ET_password"
+        />
+
+
+    <Button
+
+        android:id="@+id/btn_login"
+        android:background="@drawable/transpared_bg_button"
+        android:text="@string/login"
+        android:width="156dp"
+        android:textColor="#F2F2F2"
+        app:layout_constraintTop_toBottomOf="@id/ET_password_repeat"
+        app:layout_constraintStart_toEndOf="@id/btn_create_an_account"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <Button
+
+        android:id="@+id/btn_create_an_account"
+        android:width="156dp"
+        android:background="@drawable/transpared_bg_button"
+        android:text="I have an acoount"
+        android:textColor="#F2F2F2"
+        app:layout_constraintTop_toBottomOf="@id/ET_password_repeat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_login"
+        app:layout_constraintLeft_toRightOf="@id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
