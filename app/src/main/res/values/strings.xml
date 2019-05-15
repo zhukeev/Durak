@@ -8,4 +8,8 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notification</string>
     <string name="sign_in">Sign in</string>
+    <string name="profile">Profile</string>
+    <string name="locked">Locked</string>
+    <string name="open">Open</string>
+    <string name="money">Money </string>
 </resources>
