@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#BB6BD9</color>
     <color name="appWhite">#F2F2F2</color>
+    <color name="appViolette">#7E19BB</color>
+    <color name="appBlue">#3514FF</color>
     <color name="transparent">@android:color/transparent</color>
 
 </resources>

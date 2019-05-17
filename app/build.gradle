@@ -28,4 +28,17 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    //************** External libraries **************
+
+    //Circle Image View
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    //Range Seekbar
+    implementation 'com.github.Jay-Goo:RangeSeekBar:v2.0.6'
+
+    //Yahoo Rangebar
+
+    implementation 'com.appyvet:materialrangebar:1.4.6'
+
+
 }

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="88dp">
+
+
+    <LinearLayout
+        android:layout_marginTop="16dp"
+        android:id="@+id/filter_settings_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:text="@string/default_game_name"
+            android:textColor="@color/appWhite"
+            android:textSize="16sp"
+
+            android:id="@+id/game_item_name_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@id/filter_settings_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/funds" />
+
+            <TextView
+                android:id="@+id/TV_funds_filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="100-100M"
+                android:textColor="@color/appWhite"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/group_24" />
+
+            <TextView
+                android:id="@+id/TV_groups_filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="1,2,3,4"
+                android:textColor="@color/appWhite"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="24dp"
+
+            android:layout_height="24dp"
+            android:layout_weight="1"
+            android:src="@drawable/right_arrow_24" />
+
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_weight="1"
+            android:src="@drawable/right_arrow_double_24" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_weight="1"
+            android:src="@drawable/refresh_24" />
+
+
+        <ImageView
+
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:src="@drawable/gradient_arrow" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

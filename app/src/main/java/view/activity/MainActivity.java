@@ -1,10 +1,12 @@
-package com.example.durak_od;
+package view.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ProgressBar;
+
+import com.example.durak_od.R;
 
 public class MainActivity extends AppCompatActivity {
 

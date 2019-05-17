@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <LinearLayout
+        android:id="@+id/filter_settings_ll"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/filter_settings"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/filter_settings"
+                android:textAlignment="center"
+                android:textColor="@color/appWhite"
+                android:textSize="12sp" />
+
+
+            <ImageView
+
+                android:layout_width="32dp"
+
+                android:layout_height="32dp"
+                android:layout_gravity="end"
+                android:src="@drawable/gradient_arrow" />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/funds"
+                android:layout_width="24dp"
+                android:layout_height="24dp" />
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:id="@+id/TV_funds_filter"
+                android:text="100-100M"
+                android:textColor="@color/appWhite"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <ImageView
+
+                android:src="@drawable/group_24"
+                android:layout_width="24dp"
+                android:layout_height="24dp" />
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:id="@+id/TV_groups_filter"
+                android:text="1,2,3,4"
+                android:textColor="@color/appWhite"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_weight="1"
+
+                android:src="@drawable/right_arrow_24"
+                android:layout_width="24dp"
+                android:layout_height="24dp" />
+
+
+            <ImageView
+                android:layout_weight="1"
+                android:src="@drawable/right_arrow_double_24"
+                android:layout_width="24dp"
+                android:layout_height="24dp" />
+            <ImageView
+                android:layout_weight="1"
+                android:src="@drawable/refresh_24"
+                android:layout_width="24dp"
+                android:layout_height="24dp" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@id/filter_settings_ll"
+        android:layout_width="match_parent"
+        android:background="#000"
+        android:layout_height="48dp">
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="@string/tables"
+            android:textColor="@color/appWhite"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+</RelativeLayout>

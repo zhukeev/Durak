@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/profile_bg"
+    android:padding="16dp"
+    android:scrollbars="vertical">
+
+
+    <FrameLayout
+        android:id="@+id/profile"
+        android:layout_marginTop="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/gradient_to_plus"
+        
+        >
+        
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/user_photo_profile"
+            android:layout_width="94dp"
+            android:layout_height="94dp"
+            android:src="@drawable/user_image"
+            android:layout_gravity="center"
+            />
+
+        
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/usernameTV_profile"
+        android:text="@string/login"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        android:textColor="@color/appWhite"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/money_ll"
+        android:layout_below="@id/usernameTV_profile"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/funds"
+                android:layout_gravity="center_horizontal"
+                />
+            <TextView
+                android:text="1000000"
+                android:inputType="numberDecimal"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/appWhite"
+                android:textSize="12sp"
+                android:id="@+id/TV_funds_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="64dp" />
+        
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/coin"
+                android:layout_gravity="center_horizontal"
+                />
+            <TextView
+                android:text="1000000"
+                android:inputType="numberDecimal"
+                android:textColor="@color/appWhite"
+                android:textSize="12sp"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/TV_coins_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_below="@id/money_ll"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:scrollbars="vertical"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+
+
+    <LinearLayout
+        android:id="@+id/news_profile_ll"
+        android:layout_below="@id/money_ll"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="32dp">
+
+        <ImageView
+            android:layout_gravity="start"
+            android:src="@drawable/news_32_profile"
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
+        <TextView
+            android:gravity="left"
+            android:layout_weight="1"
+            android:paddingStart="8dp"
+            android:textColor="@color/appWhite"
+            android:clickable="true"
+            android:focusable="true"
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/news"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp" />
+
+        <ImageView
+
+            android:layout_width="32dp"
+
+            android:layout_height="32dp"
+            android:layout_gravity="end"
+            android:src="@drawable/gradient_arrow" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="16dp"
+        android:id="@+id/friends_profile_ll"
+        android:layout_below="@id/news_profile_ll"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="32dp">
+
+        <ImageView
+            android:layout_gravity="start"
+            android:src="@drawable/friends_32_profile"
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
+        <TextView
+            android:gravity="left"
+            android:layout_weight="1"
+            android:paddingStart="8dp"
+            android:textColor="@color/appWhite"
+            android:clickable="true"
+            android:focusable="true"
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/friends"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp" />
+
+        <ImageView
+
+            android:layout_width="32dp"
+
+            android:layout_height="32dp"
+            android:layout_gravity="end"
+            android:src="@drawable/gradient_arrow" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="16dp"
+        android:id="@+id/things_profile_ll"
+        android:layout_below="@id/friends_profile_ll"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="32dp">
+
+        <ImageView
+            android:layout_gravity="start"
+            android:src="@drawable/things_32_profile"
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
+        <TextView
+            android:gravity="left"
+            android:layout_weight="1"
+            android:paddingStart="8dp"
+            android:textColor="@color/appWhite"
+            android:clickable="true"
+            android:focusable="true"
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/things"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp" />
+
+        <ImageView
+
+            android:layout_width="32dp"
+
+            android:layout_height="32dp"
+            android:layout_gravity="end"
+            android:src="@drawable/gradient_arrow" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="16dp"
+        android:id="@+id/honor_roll_profile_ll"
+        android:layout_below="@id/things_profile_ll"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="32dp">
+
+        <ImageView
+            android:layout_gravity="start"
+            android:src="@drawable/honor_roll_32_profile"
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
+        <TextView
+            android:gravity="left"
+            android:layout_weight="1"
+            android:paddingStart="8dp"
+            android:textColor="@color/appWhite"
+            android:clickable="true"
+            android:focusable="true"
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/honor_roll"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp" />
+
+        <ImageView
+
+            android:layout_width="32dp"
+
+            android:layout_height="32dp"
+            android:layout_gravity="end"
+            android:src="@drawable/gradient_arrow" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="16dp"
+        android:id="@+id/achievements_profile_ll"
+        android:layout_below="@id/honor_roll_profile_ll"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="32dp">
+
+        <ImageView
+            android:layout_gravity="start"
+            android:src="@drawable/achievements_32_profile"
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
+        <TextView
+            android:gravity="left"
+            android:layout_weight="1"
+            android:paddingStart="8dp"
+            android:textColor="@color/appWhite"
+            android:clickable="true"
+            android:focusable="true"
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/achievements"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp" />
+
+        <ImageView
+
+            android:layout_width="32dp"
+
+            android:layout_height="32dp"
+            android:layout_gravity="end"
+            android:src="@drawable/gradient_arrow" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="16dp"
+        android:id="@+id/settings_profile_ll"
+        android:layout_below="@id/achievements_profile_ll"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="32dp">
+
+        <ImageView
+            android:layout_gravity="start"
+            android:src="@drawable/settings_32_profile"
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
+        <TextView
+            android:gravity="left"
+            android:layout_weight="1"
+            android:paddingStart="8dp"
+            android:textColor="@color/appWhite"
+            android:clickable="true"
+            android:focusable="true"
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/Settings"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp" />
+
+        <ImageView
+
+            android:layout_width="32dp"
+
+            android:layout_height="32dp"
+            android:layout_gravity="end"
+            android:src="@drawable/gradient_arrow" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="16dp"
+        android:id="@+id/share_profile_ll"
+        android:layout_below="@id/settings_profile_ll"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="32dp">
+
+        <ImageView
+            android:layout_gravity="start"
+            android:src="@drawable/share_32_profile"
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
+        <TextView
+            android:gravity="left"
+            android:layout_weight="1"
+            android:paddingStart="8dp"
+            android:textColor="@color/appWhite"
+            android:clickable="true"
+            android:focusable="true"
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/share"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp" />
+
+        <ImageView
+
+            android:layout_width="32dp"
+
+            android:layout_height="32dp"
+            android:layout_gravity="end"
+            android:src="@drawable/gradient_arrow" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="16dp"
+        android:id="@+id/rules_profile_ll"
+        android:layout_below="@id/share_profile_ll"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="32dp">
+
+        <ImageView
+            android:layout_gravity="start"
+            android:src="@drawable/rules_32_profile"
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
+        <TextView
+            android:gravity="left"
+            android:layout_weight="1"
+            android:paddingStart="8dp"
+            android:textColor="@color/appWhite"
+            android:clickable="true"
+            android:focusable="true"
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/rules"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp" />
+
+        <ImageView
+
+            android:layout_width="32dp"
+
+            android:layout_height="32dp"
+            android:layout_gravity="end"
+            android:src="@drawable/gradient_arrow" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="16dp"
+        android:id="@+id/more_games_profile_ll"
+        android:layout_below="@id/rules_profile_ll"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="32dp">
+
+        <ImageView
+            android:layout_gravity="start"
+            android:src="@drawable/more_games_32_profile"
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
+        <TextView
+            android:gravity="left"
+            android:layout_weight="1"
+            android:paddingStart="8dp"
+            android:textColor="@color/appWhite"
+            android:clickable="true"
+            android:focusable="true"
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/more_games"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp" />
+
+        <ImageView
+
+            android:layout_width="32dp"
+
+            android:layout_height="32dp"
+            android:layout_gravity="end"
+            android:src="@drawable/gradient_arrow" />
+
+
+    </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

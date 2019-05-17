@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array">100,1000,10000,100000</string-array>
+    <string-array name="gradient">
+
+        <item>#3514FF</item>
+        <item>#7E19BB</item>
+    </string-array>
+
+    <string-array name="connecting_colors">
+        <item>#3514FF</item>
+        <item>#7E19BB</item>
+    </string-array>
+
+
+    <string-array name="ticks_labels">
+        <item>100</item>
+        <item>1K</item>
+        <item>l0K</item>
+        <item>25K</item>
+        <item>50K</item>
+        <item>100K</item>
+    </string-array>
+
+
+
+</resources>

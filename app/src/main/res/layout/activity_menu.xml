@@ -1,30 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background">
+
+
+
+
+    <LinearLayout
+        android:id="@+id/actionbar_opengames"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+
+        <TextView
+            android:id="@+id/actionbar_textview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/open_games"
+            android:textAlignment="center"
+            android:textColor="@color/appWhite"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="46dp"
+        android:id="@+id/top_menu_ll"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <FrameLayout
+            android:id="@+id/top_fragment_menu"
+            android:layout_gravity="top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include layout="@layout/fragment_top_filters"/>
+
+        </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="56dp"
+        android:background="@color/colorPrimary" />
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:id="@+id/fragment_container_profile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:visibility="visible"
+
+        android:layout_marginBottom="56dp"
+        android:background="@color/colorPrimary">
+        <include layout="@layout/fragment_profile"
+
+            />
+    </FrameLayout>
+
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bar"
-        android:layout_gravity="bottom"
-        app:fabAlignmentMode="center"
-        android:backgroundTint="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        >
+        android:layout_gravity="bottom"
+        android:backgroundTint="@color/colorPrimary"
+        app:fabAlignmentMode="center">
 
     </com.google.android.material.bottomappbar.BottomAppBar>
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:clickable="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:focusable="true"
         android:src="@drawable/gradient_to_plus"
-        app:layout_anchor="@id/bar"
-        />
+        app:layout_anchor="@id/bar" />
 
 
     <FrameLayout
@@ -32,16 +92,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        app:menu="@menu/bottom_nav_menu"
-        android:layout_gravity="bottom"
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-        app:itemIconTint="@color/appWhite"
-        app:itemTextColor="@color/appWhite"
-        app:labelVisibilityMode="labeled"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+            android:layout_gravity="bottom"
+            app:itemIconTint="@color/appWhite"
+            app:itemTextColor="@color/appWhite"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/bottom_nav_menu" />
 
     </FrameLayout>
 
