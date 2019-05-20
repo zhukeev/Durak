@@ -194,63 +194,55 @@ public class BoardActivity extends AppCompatActivity {
 
     private void initOnImageViewClickListener() {
 
+        final Intent intent = new Intent(BoardActivity.this,NewsActivity.class);
+
+
         imageOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Fragment selectedFragment= new NewsFragment();
-
                 switch (v.getId()){
                     case R.id.open_filter_button:
-                        fragmentFilterSettings
-                                .show(getSupportFragmentManager(),"Dialog");
+
                         break;
                     case R.id.news_profile_circle_btn:
 
-                        bundle.putString("rules","rules");
-                        selectedFragment = new NewsFragment();
-                        selectedFragment.setArguments(bundle);
+                        intent.putExtra("news","news");
+                        startActivity(intent);
 
                         break;
                     case R.id.friends_profile_circle_btn:
-                        fragmentFilterSettings
-                                .show(getSupportFragmentManager(),"Dialog");
+
                         break;
                     case R.id.assets_profile_circle_btn:
-                        fragmentFilterSettings
-                                .show(getSupportFragmentManager(),"Dialog");
+
+
                         break;
                     case R.id.leaderboard_profile_circle_btn:
-                        fragmentFilterSettings
-                                .show(getSupportFragmentManager(),"Dialog");
+
                         break;
                     case R.id.achievements_profile_circle_btn:
-                        fragmentFilterSettings
-                                .show(getSupportFragmentManager(),"Dialog");
+
+
                         break;
                     case R.id.settings_profile_circle_btn:
-                        fragmentFilterSettings
-                                .show(getSupportFragmentManager(),"Dialog");
+
+
                         break;
                     case R.id.share_profile_circle_btn:
-                        fragmentFilterSettings
-                                .show(getSupportFragmentManager(),"Dialog");
+
+
                         break;
                     case R.id.rules_profile_circle_btn:
 
-                        bundle.putString("rules","rules");
-                        newsFragment.setArguments(bundle);
 
-                        selectedFragment = new NewsFragment();
-
+                        intent.putExtra("rules","rules");
+                        startActivity(intent);
                         break;
                     case R.id.more_games_profile_circle_btn:
-                        fragmentFilterSettings
-                                .show(getSupportFragmentManager(),"Dialog");
+
                         break;
                 }
-
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
             }
         };
     }

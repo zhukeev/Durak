@@ -37,7 +37,7 @@ public class NewsFragment extends Fragment {
         String rules = "no";
         String news = "no";
 
-        rules = getArguments().getString("rules","no");
+        rules = getArguments().getString("rules","rules");
         news = getArguments().getString("news","no");
 
         if (rules.equals("rules")) {
