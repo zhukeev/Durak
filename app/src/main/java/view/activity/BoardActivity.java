@@ -2,14 +2,15 @@ package view.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.durak_od.R;
@@ -19,8 +20,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.jaygoo.widget.OnRangeChangedListener;
 import com.jaygoo.widget.RangeSeekBar;
 
+import view.fragment.FilterSettingsDialog;
 import view.fragment.LockedFragment;
 import view.fragment.MoneyFragment;
+import view.fragment.NewGameDialog;
+import view.fragment.NewsFragment;
 import view.fragment.OpenGamesFragment;
 import view.fragment.ProfileFragment;
 
@@ -30,7 +34,16 @@ public class BoardActivity extends AppCompatActivity {
     RangeSeekBar rangeSeekBar;
     View topMenull;
     View profile_container;
+    FrameLayout frameLayout, frameContainerProfile;
+    ImageView openFilterImageView;
+    DialogFragment fragmentFilterSettings;
+    DialogFragment fragmentNewGame;
+    ImageView newsImageView,friendsImageView,achievementsImageView,assetsImageView,
+            leaderboardImageView,settingsImageView,shareImageView,rulesImageView,moreGamesImageView;
+    View.OnClickListener imageOnClickListener;
 
+    NewsFragment newsFragment;
+    Bundle bundle;
 
 
 
@@ -99,7 +112,6 @@ public class BoardActivity extends AppCompatActivity {
                         selectedFragment = new LockedFragment() ;
 
                         profile_container.setVisibility(View.INVISIBLE);
-
                         topMenull.setVisibility(View.VISIBLE);
                         break;
                     case R.id.navigation_money:
@@ -117,6 +129,8 @@ public class BoardActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+
     }
 
     private void setupFAB() {
@@ -125,20 +139,120 @@ public class BoardActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(BoardActivity.this, "Add", Toast.LENGTH_SHORT).show();
+                fragmentNewGame
+                        .show(getSupportFragmentManager(),"Dialog");
+
             }
         });
     }
 
+
     private void init() {
+        newsFragment = new NewsFragment();
+        bundle = new Bundle();
+
         BottomAppBar bar = findViewById(R.id.bar);
         navigationView = findViewById(R.id.bottom_navigation);
+        frameLayout = findViewById(R.id.top_fragment_menu);
+
+        topMenull = findViewById(R.id.top_menu_ll);
+        profile_container = findViewById(R.id.fragment_container_profile);
+
+        initOnImageViewClickListener();
+
+        openFilterImageView =  frameLayout.findViewById(R.id.open_filter_button);
+        newsImageView =        profile_container.findViewById(R.id.news_profile_circle_btn);
+        friendsImageView =     profile_container.findViewById(R.id.friends_profile_circle_btn);
+        assetsImageView =      profile_container.findViewById(R.id.assets_profile_circle_btn);
+        leaderboardImageView = profile_container.findViewById(R.id.leaderboard_profile_circle_btn);
+        achievementsImageView =profile_container.findViewById(R.id.achievements_profile_circle_btn);
+        settingsImageView =    profile_container.findViewById(R.id.settings_profile_circle_btn);
+        rulesImageView =       profile_container.findViewById(R.id.rules_profile_circle_btn);
+        shareImageView =       profile_container.findViewById(R.id.share_profile_circle_btn);
+        moreGamesImageView =   profile_container.findViewById(R.id.more_games_profile_circle_btn);
+
+        openFilterImageView.setOnClickListener(imageOnClickListener);
+        newsImageView.setOnClickListener(imageOnClickListener);
+        friendsImageView.setOnClickListener(imageOnClickListener);
+        assetsImageView.setOnClickListener(imageOnClickListener);
+        leaderboardImageView.setOnClickListener(imageOnClickListener);
+        achievementsImageView.setOnClickListener(imageOnClickListener);
+        settingsImageView.setOnClickListener(imageOnClickListener);
+        rulesImageView.setOnClickListener(imageOnClickListener);
+        shareImageView.setOnClickListener(imageOnClickListener);
+        moreGamesImageView.setOnClickListener(imageOnClickListener);
+
+        newsImageView =  frameLayout.findViewById(R.id.open_filter_button);
+        fragmentFilterSettings = new FilterSettingsDialog();
+        fragmentNewGame = new NewGameDialog();
 
         setSupportActionBar(bar);
 
-         topMenull = findViewById(R.id.top_menu_ll);
-        profile_container = findViewById(R.id.fragment_container_profile);
+        openFilterImageView.setOnClickListener(imageOnClickListener);
 
+    }
+
+    private void initOnImageViewClickListener() {
+
+        imageOnClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Fragment selectedFragment= new NewsFragment();
+
+                switch (v.getId()){
+                    case R.id.open_filter_button:
+                        fragmentFilterSettings
+                                .show(getSupportFragmentManager(),"Dialog");
+                        break;
+                    case R.id.news_profile_circle_btn:
+
+                        bundle.putString("rules","rules");
+                        selectedFragment = new NewsFragment();
+                        selectedFragment.setArguments(bundle);
+
+                        break;
+                    case R.id.friends_profile_circle_btn:
+                        fragmentFilterSettings
+                                .show(getSupportFragmentManager(),"Dialog");
+                        break;
+                    case R.id.assets_profile_circle_btn:
+                        fragmentFilterSettings
+                                .show(getSupportFragmentManager(),"Dialog");
+                        break;
+                    case R.id.leaderboard_profile_circle_btn:
+                        fragmentFilterSettings
+                                .show(getSupportFragmentManager(),"Dialog");
+                        break;
+                    case R.id.achievements_profile_circle_btn:
+                        fragmentFilterSettings
+                                .show(getSupportFragmentManager(),"Dialog");
+                        break;
+                    case R.id.settings_profile_circle_btn:
+                        fragmentFilterSettings
+                                .show(getSupportFragmentManager(),"Dialog");
+                        break;
+                    case R.id.share_profile_circle_btn:
+                        fragmentFilterSettings
+                                .show(getSupportFragmentManager(),"Dialog");
+                        break;
+                    case R.id.rules_profile_circle_btn:
+
+                        bundle.putString("rules","rules");
+                        newsFragment.setArguments(bundle);
+
+                        selectedFragment = new NewsFragment();
+
+                        break;
+                    case R.id.more_games_profile_circle_btn:
+                        fragmentFilterSettings
+                                .show(getSupportFragmentManager(),"Dialog");
+                        break;
+                }
+
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+            }
+        };
     }
 
 }

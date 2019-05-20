@@ -3,6 +3,10 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="com.example.durak_od">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <dist:module dist:instant="true" />
 
     <application
@@ -12,6 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppThemeChanged">
+        <activity android:name="view.activity.SettingsActivity"></activity>
+        <activity android:name="view.activity.AchievementsActivity" />
+        <activity android:name="view.activity.LeaderboardActivity" />
+        <activity android:name="view.activity.FriendsActivity" />
+        <activity android:name="view.activity.NewsActivity" />
         <activity android:name="view.activity.SigninAcitvity" />
         <activity android:name="view.activity.BoardActivity" />
         <activity android:name="view.activity.LoginActivity" />

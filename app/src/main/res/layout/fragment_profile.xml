@@ -145,9 +145,8 @@
             android:layout_height="32dp" />
 
         <ImageView
-
+            android:id="@+id/news_profile_circle_btn"
             android:layout_width="32dp"
-
             android:layout_height="32dp"
             android:layout_gravity="end"
             android:src="@drawable/gradient_arrow" />
@@ -182,6 +181,7 @@
             android:layout_height="32dp" />
 
         <ImageView
+            android:id="@+id/friends_profile_circle_btn"
 
             android:layout_width="32dp"
 
@@ -194,7 +194,7 @@
 
     <LinearLayout
         android:layout_marginTop="16dp"
-        android:id="@+id/things_profile_ll"
+        android:id="@+id/assets_profile_ll"
         android:layout_below="@id/friends_profile_ll"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -202,7 +202,7 @@
 
         <ImageView
             android:layout_gravity="start"
-            android:src="@drawable/things_32_profile"
+            android:src="@drawable/assets_32_profile"
             android:layout_width="32dp"
             android:layout_height="32dp" />
         <TextView
@@ -221,7 +221,7 @@
         <ImageView
 
             android:layout_width="32dp"
-
+            android:id="@+id/assets_profile_circle_btn"
             android:layout_height="32dp"
             android:layout_gravity="end"
             android:src="@drawable/gradient_arrow" />
@@ -232,14 +232,14 @@
     <LinearLayout
         android:layout_marginTop="16dp"
         android:id="@+id/honor_roll_profile_ll"
-        android:layout_below="@id/things_profile_ll"
+        android:layout_below="@id/assets_profile_ll"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="32dp">
 
         <ImageView
             android:layout_gravity="start"
-            android:src="@drawable/honor_roll_32_profile"
+            android:src="@drawable/leaderboard_32_profile"
             android:layout_width="32dp"
             android:layout_height="32dp" />
         <TextView
@@ -256,6 +256,7 @@
             android:layout_height="32dp" />
 
         <ImageView
+            android:id="@+id/leaderboard_profile_circle_btn"
 
             android:layout_width="32dp"
 
@@ -293,7 +294,7 @@
             android:layout_height="32dp" />
 
         <ImageView
-
+            android:id="@+id/achievements_profile_circle_btn"
             android:layout_width="32dp"
 
             android:layout_height="32dp"
@@ -330,6 +331,7 @@
             android:layout_height="32dp" />
 
         <ImageView
+            android:id="@+id/settings_profile_circle_btn"
 
             android:layout_width="32dp"
 
@@ -367,6 +369,7 @@
             android:layout_height="32dp" />
 
         <ImageView
+            android:id="@+id/share_profile_circle_btn"
 
             android:layout_width="32dp"
 
@@ -404,6 +407,7 @@
             android:layout_height="32dp" />
 
         <ImageView
+            android:id="@+id/rules_profile_circle_btn"
 
             android:layout_width="32dp"
 
@@ -441,7 +445,7 @@
             android:layout_height="32dp" />
 
         <ImageView
-
+            android:id="@+id/more_games_profile_circle_btn"
             android:layout_width="32dp"
 
             android:layout_height="32dp"

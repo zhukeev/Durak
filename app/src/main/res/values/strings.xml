@@ -26,4 +26,18 @@
     <string name="filter_money_range">Фильтр ставки</string>
     <string name="tables">Столы</string>
     <string name="default_game_name">Название комнаты или имена игроков</string>
+    <string name="count_of_players">Количество Игроков</string>
+    <string name="speed_of_game">Скорость игры</string>
+    <string name="normal">Нормальная</string>
+    <string name="speed">Быстрая</string>
+    <string name="who_throws">Кто может подбрасывать</string>
+    <string name="game_options">Варианты игры</string>
+    <string name="neighbours">Соседи</string>
+    <string name="all">Все</string>
+    <string name="apply_filters">Применить фильтры</string>
+    <string name="private_game">Приватная игра</string>
+    <string name="create">Создать</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
