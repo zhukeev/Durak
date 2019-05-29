@@ -1,5 +1,7 @@
 package view.fragment;
 
+import android.content.ContextWrapper;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,6 +18,7 @@ import androidx.fragment.app.DialogFragment;
 
 import com.appyvet.materialrangebar.RangeBar;
 import com.example.durak_od.R;
+import com.pixplicity.easyprefs.library.Prefs;
 
 import java.util.Objects;
 
@@ -23,9 +27,10 @@ import utils.SharedPreferenceHelper;
 public class FilterSettingsDialog extends DialogFragment {
 
     private RangeBar rangeSeekBar;
-    private CheckBox checkBox,checkBox2,checkBox3,checkBox4,checkBox5
-            , checkBoxNormalSpeed, checkBoxFastMode, checkBoxThrowNeighbours, checkBoxThrowAll,checkBoxPassOn;
+    private CheckBox checkBoxPassOn;
     private Button applyButton;
+    private RadioButton radioButton1,radioButton2,radioButton3,radioButton4,radioButton5,
+                        radioButtonSpeedFast,radioButtonSpeedNormal,radioButtonThrowAll,radioButtonThrowNeighbours;
 
 
     private final String _2PLAYERS = "2PLAYERS";
@@ -39,6 +44,9 @@ public class FilterSettingsDialog extends DialogFragment {
     private final String _THROW_ALL = "THROW_ALL";
     private final String _PASS_ON = "PASS_ON";
 
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
+
 
     @Nullable
     @Override
@@ -48,55 +56,47 @@ public class FilterSettingsDialog extends DialogFragment {
         init(v);
 
         setupRangeSeekbar();
-        setupCheckbox();
+//        setupCheckbox();
 
         return v;
     }
 
     private void init(View v) {
-        rangeSeekBar = v.findViewById(R.id.rangebarMat);
+        rangeSeekBar = v.findViewById(R.id.rangebarSearchDialog);
+
         applyButton = v.findViewById(R.id.applyFilterButton);
 
+        new Prefs.Builder()
+                .setContext(getContext())
+                .setMode(ContextWrapper.MODE_PRIVATE)
+                .setPrefsName(getContext().getPackageName())
+                .setUseDefaultSharedPreference(true)
+                .build();
 
-        checkBox = v.findViewById( R.id.filter_settings_checkbox1);
-        checkBox2 = v.findViewById(R.id.filter_settings_checkbox2);
-        checkBox3 = v.findViewById(R.id.filter_settings_checkbox3);
-        checkBox4 = v.findViewById(R.id.filter_settings_checkbox4);
-        checkBox5 = v.findViewById(R.id.filter_settings_checkbox5);
-        checkBoxFastMode = v.findViewById(R.id.speed_of_game_fast_mode);
-        checkBoxNormalSpeed = v.findViewById(R.id.speed_of_game_normal_mode);
-        checkBoxThrowNeighbours = v.findViewById(R.id.throw_neighbours);
-        checkBoxThrowAll = v.findViewById(R.id.throw_all);
+
+        radioButton1 = v.findViewById( R.id.filter_settings_checkbox11);
+        radioButton2 = v.findViewById(R.id.filter_settings_checkbox22);
+        radioButton3 = v.findViewById(R.id.filter_settings_checkbox33);
+        radioButton4 = v.findViewById(R.id.filter_settings_checkbox44);
+        radioButton5 = v.findViewById(R.id.filter_settings_checkbox55);
+
+
+        radioButtonSpeedFast = v.findViewById(R.id.speed_of_game_speed_modeRadio);
+        radioButtonSpeedNormal = v.findViewById(R.id.speed_of_game_normal_modeRadio);
+        radioButtonThrowNeighbours = v.findViewById(R.id.throw_neighboursRadio);
+        radioButtonThrowAll = v.findViewById(R.id.throw_allRadio);
         checkBoxPassOn = v.findViewById(R.id.passinOn);
+        checkBoxPassOn.setButtonDrawable(R.drawable.passing_mode_inactive);
+        checkBoxPassOn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
+                buttonView.setButtonDrawable(buttonView.isChecked()?
+                        R.drawable.passing_mode_inactive:
+                        R.drawable.passing_mode_active);
+            }
+        });
 
-        //get saved checkbox config
-        boolean twoP   = SharedPreferenceHelper.getBoolean(Objects.requireNonNull(getContext()),_2PLAYERS,true);
-        boolean threeP = SharedPreferenceHelper.getBoolean(Objects.requireNonNull(getContext()),_2PLAYERS,true);
-        boolean fourP  = SharedPreferenceHelper.getBoolean(Objects.requireNonNull(getContext()),_2PLAYERS,true);
-        boolean fiveP  = SharedPreferenceHelper.getBoolean(Objects.requireNonNull(getContext()),_2PLAYERS,true);
-        boolean sixP   = SharedPreferenceHelper.getBoolean(Objects.requireNonNull(getContext()),_2PLAYERS,true);
-
-        boolean passOn   = SharedPreferenceHelper.getBoolean(Objects.requireNonNull(getContext()),_PASS_ON,true);
-        boolean throwAll   = SharedPreferenceHelper.getBoolean(Objects.requireNonNull(getContext()),_THROW_ALL,true);
-        boolean throwNeighbours   = SharedPreferenceHelper.getBoolean(Objects.requireNonNull(getContext()),_THROW_NEIGHBOURS,true);
-        boolean fastMode   = SharedPreferenceHelper.getBoolean(Objects.requireNonNull(getContext()),_SPEED_FAST,true);
-        boolean normalMode   = SharedPreferenceHelper.getBoolean(Objects.requireNonNull(getContext()),_SPEED_NORMAL,true);
-
-
-
-
-        setCheck(checkBoxPassOn,passOn,_PASS_ON);
-        setCheck(checkBoxThrowAll,throwAll,_THROW_ALL);
-        setCheck(checkBoxThrowNeighbours,throwNeighbours,_THROW_NEIGHBOURS);
-        setCheck(checkBoxFastMode,fastMode,_SPEED_FAST);
-        setCheck(checkBoxNormalSpeed,normalMode,_SPEED_NORMAL);
-
-        setCheck(checkBox,twoP,_2PLAYERS);
-        setCheck(checkBox2,threeP,_3PLAYERS);
-        setCheck(checkBox3,fourP,_4PLAYERS);
-        setCheck(checkBox4,fiveP,_5PLAYERS);
-        setCheck(checkBox5,sixP,_6PLAYERS);
 
         applyButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,20 +108,24 @@ public class FilterSettingsDialog extends DialogFragment {
     }
 
     private void saveChanges() {
-        SharedPreferenceHelper.setBoolean(Objects.requireNonNull(getContext()),_2PLAYERS,checkBox.isChecked());
+
+
+        /*SharedPreferenceHelper.setBoolean(Objects.requireNonNull(getContext()),_2PLAYERS,checkBox.isChecked());
         SharedPreferenceHelper.setBoolean(Objects.requireNonNull(getContext()),_3PLAYERS,checkBox2.isChecked());
         SharedPreferenceHelper.setBoolean(Objects.requireNonNull(getContext()),_4PLAYERS,checkBox3.isChecked());
         SharedPreferenceHelper.setBoolean(Objects.requireNonNull(getContext()),_5PLAYERS,checkBox4.isChecked());
-        SharedPreferenceHelper.setBoolean(Objects.requireNonNull(getContext()),_6PLAYERS,checkBox5.isChecked());
-        SharedPreferenceHelper.setBoolean(Objects.requireNonNull(getContext()),_SPEED_FAST,checkBoxFastMode.isChecked());
+        SharedPreferenceHelper.setBoolean(Objects.requireNonNull(getContext()),_6PLAYERS,checkBox5.isChecked());*/
+
+       /* SharedPreferenceHelper.setBoolean(Objects.requireNonNull(getContext()),_SPEED_FAST,checkBoxFastMode.isChecked());
         SharedPreferenceHelper.setBoolean(Objects.requireNonNull(getContext()),_SPEED_NORMAL,checkBoxNormalSpeed.isChecked());
         SharedPreferenceHelper.setBoolean(Objects.requireNonNull(getContext()),_PASS_ON,checkBoxPassOn.isChecked());
         SharedPreferenceHelper.setBoolean(Objects.requireNonNull(getContext()),_THROW_ALL,checkBoxThrowAll.isChecked());
         SharedPreferenceHelper.setBoolean(Objects.requireNonNull(getContext()),_THROW_NEIGHBOURS,checkBoxThrowNeighbours.isChecked());
+*/
 
     }
 
-    private void setupCheckbox() {
+  /*  private void setupCheckbox() {
 
         CompoundButton.OnCheckedChangeListener changeListener = new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -166,31 +170,42 @@ public class FilterSettingsDialog extends DialogFragment {
             }
         };
 
-        checkBox.setOnCheckedChangeListener(changeListener);
-        checkBox2.setOnCheckedChangeListener(changeListener);
-        checkBox3.setOnCheckedChangeListener(changeListener);
-        checkBox4.setOnCheckedChangeListener(changeListener);
-        checkBox5.setOnCheckedChangeListener(changeListener);
-        checkBoxNormalSpeed.setOnCheckedChangeListener(changeListener);
-        checkBoxFastMode.setOnCheckedChangeListener(changeListener);
-        checkBoxThrowAll.setOnCheckedChangeListener(changeListener);
-        checkBoxThrowNeighbours.setOnCheckedChangeListener(changeListener);
-        checkBoxPassOn.setOnCheckedChangeListener(changeListener);
+//        checkBox.setOnCheckedChangeListener(changeListener);
+//        checkBox2.setOnCheckedChangeListener(changeListener);
+//        checkBox3.setOnCheckedChangeListener(changeListener);
+//        checkBox4.setOnCheckedChangeListener(changeListener);
+//        checkBox5.setOnCheckedChangeListener(changeListener);
+//        checkBoxNormalSpeed.setOnCheckedChangeListener(changeListener);
+//        checkBoxFastMode.setOnCheckedChangeListener(changeListener);
+//        checkBoxThrowAll.setOnCheckedChangeListener(changeListener);
+//        checkBoxThrowNeighbours.setOnCheckedChangeListener(changeListener);
+//        checkBoxPassOn.setOnCheckedChangeListener(changeListener);
 
-    }
+    }*/
 
-    private void setCheck(CompoundButton buttonView, boolean isChecked, String players) {
+    /*private void setCheck(CompoundButton buttonView, boolean isChecked, String players) {
 
         switch (buttonView.getId()){
 
             case R.id.filter_settings_checkbox1:
-            case R.id.filter_settings_checkbox2:
-            case R.id.filter_settings_checkbox3:
-            case R.id.filter_settings_checkbox4:
-            case R.id.filter_settings_checkbox5:
-
-
                 buttonView.setButtonDrawable(buttonView.isChecked()?R.drawable.checkbox_unchecked:R.drawable.checkbox_checked);
+                break;
+
+            case R.id.filter_settings_checkbox2:
+                buttonView.setButtonDrawable(buttonView.isChecked()?R.drawable.checkbox_unchecked:R.drawable.checkbox_checked);
+                break;
+
+            case R.id.filter_settings_checkbox3:
+                buttonView.setButtonDrawable(buttonView.isChecked()?R.drawable.checkbox_unchecked:R.drawable.checkbox_checked);
+                break;
+
+            case R.id.filter_settings_checkbox4:
+                buttonView.setButtonDrawable(buttonView.isChecked()?R.drawable.checkbox_unchecked:R.drawable.checkbox_checked);
+                break;
+
+            case R.id.filter_settings_checkbox5:
+                buttonView.setButtonDrawable(buttonView.isChecked()?R.drawable.checkbox_unchecked:R.drawable.checkbox_checked);
+
                 SharedPreferenceHelper.setBoolean(Objects.requireNonNull(getContext()),players,isChecked);
                 Toast.makeText(getContext(), "put "+buttonView.isChecked(), Toast.LENGTH_SHORT).show();
                 break;
@@ -244,7 +259,7 @@ public class FilterSettingsDialog extends DialogFragment {
                 default: break;
         }
 
-    }
+    }*/
 
     private void setupRangeSeekbar() {
 

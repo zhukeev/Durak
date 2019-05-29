@@ -16,6 +16,8 @@ import android.webkit.WebView;
 
 import com.example.durak_od.R;
 
+import java.util.Objects;
+
 
 public class NewsFragment extends Fragment {
 
@@ -38,13 +40,17 @@ public class NewsFragment extends Fragment {
         String news = "no";
 
         rules = getArguments().getString("rules","rules");
-        news = getArguments().getString("news","no");
+        news = getArguments().getString("news","news");
 
         if (rules.equals("rules")) {
             webView.loadUrl("http://static.rstgames.com/durak/public/android/ru/help.html");
         } else if (news.equals("news")) {
             webView.loadUrl("http://static.rstgames.com/durak/public/android/ru/news.html");
         }
+
+
+
+//        Objects.requireNonNull(getFragmentManager()).beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
     }
 
     private void init(View v) {

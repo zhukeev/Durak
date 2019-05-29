@@ -17,7 +17,7 @@
         android:textSize="16sp" />
 
     <com.appyvet.materialrangebar.RangeBar
-        android:id="@+id/rangebarMat"
+        android:id="@+id/rangebarSearchDialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/filter_range_TV"
@@ -29,10 +29,10 @@
         app:mrb_rangeBar="true"
         app:mrb_rangeBarColor="@color/colorPrimary"
         app:mrb_selectorColor="@color/appWhite"
-        app:mrb_temporaryPins="true"
-        app:mrb_tickBottomLabels="@array/ticks_labels"
+
         app:mrb_tickColors="@color/appViolette"
-        app:mrb_tickEnd="6"
+        app:mrb_tickEnd="100"
+
         app:mrb_tickLabelSelectedColor="@color/appBlue"
         app:mrb_tickLabelSize="5dp"
         app:mrb_tickStart="1" />
@@ -41,119 +41,110 @@
         android:id="@+id/num_of_players"
         android:layout_width="match_parent"
         android:layout_height="88dp"
-        android:layout_below="@id/rangebarMat"
+        android:layout_below="@id/rangebarSearchDialog"
         android:orientation="vertical"
         android:padding="8dp">
 
         <TextView
-            android:paddingTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:paddingTop="8dp"
             android:text="@string/count_of_players"
             android:textColor="@color/appWhite"
             android:textSize="16sp" />
 
 
         <LinearLayout
-            android:paddingTop="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp">
 
-            <CheckBox
-                android:layout_weight="1"
-
-                android:id="@+id/filter_settings_checkbox1"
-                android:layout_width="wrap_content"
+            <RadioGroup
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="viewEnd"
-                android:textColor="@color/appWhite"
-                android:textSize="16sp" />
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-            <TextView
-                android:text="2"
-                android:layout_marginLeft="-16dp"
-                android:layout_weight="1"
-                android:textSize="16sp"
-                android:textColor="@color/appWhite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <CheckBox
 
-                android:layout_weight="1"
+                <RadioButton
+                    android:id="@+id/filter_settings_checkbox11"
 
-                android:id="@+id/filter_settings_checkbox2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="viewEnd"
-                android:textColor="@color/appWhite"
-                android:textSize="16sp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:background="@color/transparent"
+                    android:button="@android:color/transparent"
+                    android:drawableStart="@drawable/radio_checkbox_buttons"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/appWhite"
+                    android:textSize="16sp" />
 
-            <TextView
-                android:text="3"
-                android:layout_marginLeft="-16dp"
-                android:layout_weight="1"
-                android:textSize="16sp"
-                android:textColor="@color/appWhite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <CheckBox
+                <RadioButton
+                    android:id="@+id/filter_settings_checkbox22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
 
-                android:layout_weight="1"
+                    android:background="@color/transparent"
+                    android:button="@android:color/transparent"
+                    android:drawableStart="@drawable/radio_checkbox_buttons"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textColor="@color/appWhite"
+                    android:textSize="16sp" />
 
-                android:id="@+id/filter_settings_checkbox3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="viewEnd"
-                android:textColor="@color/appWhite"
-                android:textSize="16sp" />
 
-            <TextView
-                android:text="4"
-                android:layout_marginLeft="-16dp"
-                android:layout_weight="1"
-                android:textSize="16sp"
-                android:textColor="@color/appWhite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <CheckBox
+                <RadioButton
+                    android:id="@+id/filter_settings_checkbox33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
 
-                android:layout_weight="1"
+                    android:background="@color/transparent"
+                    android:button="@android:color/transparent"
+                    android:drawableStart="@drawable/radio_checkbox_buttons"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:text="3"
+                    android:textColor="@color/appWhite"
+                    android:textSize="16sp" />
 
-                android:id="@+id/filter_settings_checkbox4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="viewEnd"
-                android:textColor="@color/appWhite"
-                android:textSize="16sp" />
+                <RadioButton
+                    android:id="@+id/filter_settings_checkbox44"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
 
-            <TextView
-                android:text="5"
-                android:layout_marginLeft="-16dp"
-                android:layout_weight="1"
-                android:textSize="16sp"
-                android:textColor="@color/appWhite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <CheckBox
+                    android:background="@color/transparent"
+                    android:button="@android:color/transparent"
+                    android:drawableStart="@drawable/radio_checkbox_buttons"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:text="4"
+                    android:textColor="@color/appWhite"
+                    android:textSize="16sp" />
 
-                android:layout_weight="1"
+                <RadioButton
+                    android:id="@+id/filter_settings_checkbox55"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:background="@color/transparent"
+                    android:button="@android:color/transparent"
+                    android:drawableStart="@drawable/radio_checkbox_buttons"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="5"
+                    android:textColor="@color/appWhite"
+                    android:textSize="16sp" />
+            </RadioGroup>
 
-                android:id="@+id/filter_settings_checkbox5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="viewEnd"
-                android:textColor="@color/appWhite"
-                android:textSize="16sp" />
-
-            <TextView
-                android:text="6"
-                android:layout_marginLeft="-16dp"
-                android:layout_weight="1"
-                android:textSize="16sp"
-                android:textColor="@color/appWhite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
         </LinearLayout>
 
     </LinearLayout>
@@ -167,10 +158,10 @@
         android:padding="8dp">
 
         <TextView
-            android:paddingTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:paddingTop="8dp"
             android:text="@string/speed_of_game"
             android:textColor="@color/appWhite"
             android:textSize="16sp" />
@@ -181,54 +172,53 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/speed_of_game_normal_mode"
-                    android:layout_width="40dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:layout_gravity="center"
-                    android:layout_height="40dp" />
-                <TextView
-                    android:text="@string/normal"
-                    android:textSize="12sp"
-                    android:layout_gravity="center"
-                    android:textColor="@color/appWhite"
-                    android:paddingBottom="8dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-
-            <LinearLayout
-
-                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
-                <CheckBox
-                    android:layout_gravity="center"
-                    android:focusable="true"
-                    android:clickable="true"
-                    android:id="@+id/speed_of_game_fast_mode"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp" />
 
-                <TextView
-                    android:text="@string/speed"
-                    android:textSize="12sp"
-                    android:layout_gravity="center"
-                    android:textColor="@color/appWhite"
-                    android:layout_marginBottom="8dp"
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/speed_of_game_normal_modeRadio"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@color/transparent"
+                        android:button="@color/transparent"
+                        android:drawableTop="@drawable/radio_buttons_speed_normal"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:text="@string/speed"
+                        android:textColor="@color/appWhite" />
+
+                    <RadioButton
+                        android:id="@+id/speed_of_game_speed_modeRadio"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@color/transparent"
+                        android:button="@color/transparent"
+                        android:drawableTop="@drawable/radio_buttons_speed_fast"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:shadowRadius="30"
+                        android:text="@string/normal"
+                        android:textColor="@color/appWhite" />
+
+
+                </RadioGroup>
+
             </LinearLayout>
-
 
         </LinearLayout>
 
@@ -239,140 +229,126 @@
         android:id="@+id/options_part"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
-        android:gravity="center"
         android:layout_below="@id/speed_of_game"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:paddingTop="8dp">
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:orientation="vertical">
 
-                <TextView
-                    android:text="@string/who_throws"
-                    android:textSize="12sp"
-                    android:layout_gravity="center"
-                    android:textColor="@color/appWhite"
-                    android:layout_marginBottom="16dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-
-
-                    <LinearLayout
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <CheckBox
-                            android:id="@+id/throw_neighbours"
-                            android:layout_width="40dp"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:layout_gravity="center"
-                            android:layout_height="40dp" />
-
-
-                        <TextView
-                            android:text="@string/neighbours"
-                            android:textSize="12sp"
-                            android:layout_gravity="center"
-                            android:textColor="@color/appWhite"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <CheckBox
-                            android:id="@+id/throw_all"
-                            android:layout_width="40dp"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:layout_gravity="center"
-                            android:layout_height="40dp" />
-
-
-                        <TextView
-                            android:text="@string/all"
-                            android:textSize="12sp"
-                            android:layout_gravity="center"
-                            android:textColor="@color/appWhite"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_gravity="bottom"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+                android:text="@string/who_throws"
+                android:textColor="@color/appWhite"
+                android:textSize="12sp" />
 
 
-                <TextView
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-                    android:text="@string/game_options"
-                    android:textSize="12sp"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="16dp"
 
-                    android:textColor="@color/appWhite"
+                <RadioButton
+                    android:id="@+id/throw_neighboursRadio"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <CheckBox
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@color/transparent"
+                    android:button="@color/transparent"
+                    android:drawableTop="@drawable/radio_button_throw_neighbours"
                     android:focusable="true"
-                    android:clickable="true"
-                    android:id="@+id/passinOn"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp" />
+                    android:gravity="center"
+                    android:text="@string/neighbours"
+                    android:textColor="@color/appWhite" />
 
-                <TextView
-                    android:text="Переводной"
-                    android:textSize="12sp"
-                    android:layout_gravity="center"
-                    android:textColor="@color/appWhite"
+                <RadioButton
+                    android:id="@+id/throw_allRadio"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@color/transparent"
+                    android:button="@color/transparent"
+                    android:drawableTop="@drawable/radio_button_throw_all"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/all"
+                    android:textColor="@color/appWhite" />
+
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+
+                android:text="@string/game_options"
+                android:textColor="@color/appWhite"
+                android:textSize="12sp" />
+
+            <CheckBox
+                android:background="@color/transparent"
+                android:button="@drawable/passing_mode_active"
+                android:id="@+id/passinOn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Переводной"
+                android:textColor="@color/appWhite"
+                android:textSize="12sp" />
+        </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
 
-        android:layout_below="@id/options_part"
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="match_parent">
-        
+        android:layout_height="match_parent"
+        android:layout_below="@id/options_part"
+        android:gravity="center">
+
         <Button
             android:id="@+id/applyFilterButton"
-            android:background="@drawable/button_rectangle"
+            android:layout_width="216dp"
+            android:layout_height="32dp"
             android:layout_gravity="center"
+            android:background="@drawable/button_rectangle"
             android:text="@string/apply_filters"
             android:textAlignment="center"
             android:textColor="@color/appWhite"
-            android:textSize="14sp"
-            android:layout_width="216dp"
-            android:layout_height="32dp" />
+            android:textSize="14sp" />
 
-        
+
     </LinearLayout>
 
 

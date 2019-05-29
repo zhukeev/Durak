@@ -2,9 +2,11 @@ package utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 
-public class SharedPreferenceHelper {
+public class SharedPreferenceHelper extends AsyncTask<Void,Void,Boolean> {
     private final static String PREF_FILE = "PREF";
+
 
     /**
      * Set a string shared preference
@@ -39,9 +41,11 @@ public class SharedPreferenceHelper {
      * @param value - Value for the key
      */
    public static void setBoolean(Context context, String key, boolean value){
-        SharedPreferences settings = context.getSharedPreferences(PREF_FILE, 0);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putBoolean(key, value);
+
+       SharedPreferences settings = context.getSharedPreferences(PREF_FILE, 0);
+       SharedPreferences.Editor editor = settings.edit();
+
+       editor.putBoolean(key, value);
 //        editor.apply();
         editor.commit();
      
@@ -81,4 +85,10 @@ public class SharedPreferenceHelper {
     }
 
 
+    @Override
+    protected Boolean doInBackground(Void... voids) {
+
+
+        return null;
+    }
 }

@@ -1,10 +1,5 @@
 package view.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -13,12 +8,15 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+
 import com.example.durak_od.R;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.jaygoo.widget.OnRangeChangedListener;
-import com.jaygoo.widget.RangeSeekBar;
 
 import view.fragment.FilterSettingsDialog;
 import view.fragment.LockedFragment;
@@ -31,20 +29,19 @@ import view.fragment.ProfileFragment;
 public class BoardActivity extends AppCompatActivity {
 
     BottomNavigationView navigationView;
-    RangeSeekBar rangeSeekBar;
+    //    RangeSeekBar rangeSeekBar;
     View topMenull;
     View profile_container;
     FrameLayout frameLayout, frameContainerProfile;
     ImageView openFilterImageView;
     DialogFragment fragmentFilterSettings;
     DialogFragment fragmentNewGame;
-    ImageView newsImageView,friendsImageView,achievementsImageView,assetsImageView,
-            leaderboardImageView,settingsImageView,shareImageView,rulesImageView,moreGamesImageView;
+    ImageView newsImageView, friendsImageView, achievementsImageView, assetsImageView,
+            leaderboardImageView, settingsImageView, shareImageView, rulesImageView, moreGamesImageView;
     View.OnClickListener imageOnClickListener;
 
     NewsFragment newsFragment;
     Bundle bundle;
-
 
 
     @Override
@@ -57,35 +54,13 @@ public class BoardActivity extends AppCompatActivity {
         setupBottomNavigationMenu();
     }
 
-    private void setupRangeSeekbar() {
-
-        rangeSeekBar.setOnRangeChangedListener(new OnRangeChangedListener() {
-            @Override
-            public void onRangeChanged(RangeSeekBar view, float leftValue, float rightValue, boolean isFromUser) {
-                rangeSeekBar.getLeftSeekBar().setIndicatorText(""+leftValue);
-                rangeSeekBar.getRightSeekBar().setIndicatorText(""+leftValue);
-            }
-
-            @Override
-            public void onStartTrackingTouch(RangeSeekBar view, boolean isLeft) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(RangeSeekBar view, boolean isLeft) {
-
-            }
-        });
-    }
-
-
     private void setupBottomNavigationMenu() {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-                Fragment selectedFragment=null;
+                Fragment selectedFragment = null;
 
 
                 switch (menuItem.getItemId()) {
@@ -100,16 +75,16 @@ public class BoardActivity extends AppCompatActivity {
                         break;
 
 
-                       case R.id.navigation_open:
+                    case R.id.navigation_open:
                         Toast.makeText(BoardActivity.this, "Open", Toast.LENGTH_SHORT).show();
                         selectedFragment = new OpenGamesFragment();
 
-                           profile_container.setVisibility(View.GONE);
-                           topMenull.setVisibility(View.VISIBLE);
+                        profile_container.setVisibility(View.GONE);
+                        topMenull.setVisibility(View.VISIBLE);
                         break;
                     case R.id.navigation_locked:
                         Toast.makeText(BoardActivity.this, "Locked", Toast.LENGTH_SHORT).show();
-                        selectedFragment = new LockedFragment() ;
+                        selectedFragment = new LockedFragment();
 
                         profile_container.setVisibility(View.INVISIBLE);
                         topMenull.setVisibility(View.VISIBLE);
@@ -140,7 +115,7 @@ public class BoardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 fragmentNewGame
-                        .show(getSupportFragmentManager(),"Dialog");
+                        .show(getSupportFragmentManager(), "Dialog");
 
             }
         });
@@ -160,16 +135,16 @@ public class BoardActivity extends AppCompatActivity {
 
         initOnImageViewClickListener();
 
-        openFilterImageView =  frameLayout.findViewById(R.id.open_filter_button);
-        newsImageView =        profile_container.findViewById(R.id.news_profile_circle_btn);
-        friendsImageView =     profile_container.findViewById(R.id.friends_profile_circle_btn);
-        assetsImageView =      profile_container.findViewById(R.id.assets_profile_circle_btn);
+        openFilterImageView = frameLayout.findViewById(R.id.open_filter_button);
+        newsImageView = profile_container.findViewById(R.id.news_profile_circle_btn);
+        friendsImageView = profile_container.findViewById(R.id.friends_profile_circle_btn);
+        assetsImageView = profile_container.findViewById(R.id.assets_profile_circle_btn);
         leaderboardImageView = profile_container.findViewById(R.id.leaderboard_profile_circle_btn);
-        achievementsImageView =profile_container.findViewById(R.id.achievements_profile_circle_btn);
-        settingsImageView =    profile_container.findViewById(R.id.settings_profile_circle_btn);
-        rulesImageView =       profile_container.findViewById(R.id.rules_profile_circle_btn);
-        shareImageView =       profile_container.findViewById(R.id.share_profile_circle_btn);
-        moreGamesImageView =   profile_container.findViewById(R.id.more_games_profile_circle_btn);
+        achievementsImageView = profile_container.findViewById(R.id.achievements_profile_circle_btn);
+        settingsImageView = profile_container.findViewById(R.id.settings_profile_circle_btn);
+        rulesImageView = profile_container.findViewById(R.id.rules_profile_circle_btn);
+        shareImageView = profile_container.findViewById(R.id.share_profile_circle_btn);
+        moreGamesImageView = profile_container.findViewById(R.id.more_games_profile_circle_btn);
 
         openFilterImageView.setOnClickListener(imageOnClickListener);
         newsImageView.setOnClickListener(imageOnClickListener);
@@ -182,7 +157,6 @@ public class BoardActivity extends AppCompatActivity {
         shareImageView.setOnClickListener(imageOnClickListener);
         moreGamesImageView.setOnClickListener(imageOnClickListener);
 
-        newsImageView =  frameLayout.findViewById(R.id.open_filter_button);
         fragmentFilterSettings = new FilterSettingsDialog();
         fragmentNewGame = new NewGameDialog();
 
@@ -194,20 +168,21 @@ public class BoardActivity extends AppCompatActivity {
 
     private void initOnImageViewClickListener() {
 
-        final Intent intent = new Intent(BoardActivity.this,NewsActivity.class);
 
 
         imageOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                switch (v.getId()){
+                switch (v.getId()) {
                     case R.id.open_filter_button:
-
+                        fragmentFilterSettings
+                                .show(getSupportFragmentManager(),"Dialog");
                         break;
                     case R.id.news_profile_circle_btn:
+                        final Intent intent = new Intent(BoardActivity.this, NewsActivity.class);
 
-                        intent.putExtra("news","news");
+                        intent.putExtra("news", "news");
                         startActivity(intent);
 
                         break;
@@ -215,7 +190,6 @@ public class BoardActivity extends AppCompatActivity {
 
                         break;
                     case R.id.assets_profile_circle_btn:
-
 
                         break;
                     case R.id.leaderboard_profile_circle_btn:
@@ -226,7 +200,9 @@ public class BoardActivity extends AppCompatActivity {
 
                         break;
                     case R.id.settings_profile_circle_btn:
-
+                        final Intent settings = new Intent(BoardActivity.this, NewsActivity.class);
+                        settings.putExtra("settings", "settings");
+                        startActivity(settings);
 
                         break;
                     case R.id.share_profile_circle_btn:
@@ -235,9 +211,10 @@ public class BoardActivity extends AppCompatActivity {
                         break;
                     case R.id.rules_profile_circle_btn:
 
+                        final Intent rules = new Intent(BoardActivity.this, NewsActivity.class);
 
-                        intent.putExtra("rules","rules");
-                        startActivity(intent);
+                        rules.putExtra("rules", "rules");
+                        startActivity(rules);
                         break;
                     case R.id.more_games_profile_circle_btn:
 

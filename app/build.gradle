@@ -10,7 +10,30 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        //Trello config
+        vectorDrawables.useSupportLibrary = true
     }
+
+    sourceSets {
+        main {
+            svg.srcDir 'src/main/svg'
+        }
+    }
+
+
+    victor {
+        // Any assets defined in relative terms needs a base DPI specified
+        svgDpi = 72
+
+        // Do not generate these densities for SVG assets
+        excludeDensities = ['ldpi', 'xxxhdpi']
+
+        // Set this to "true" if you want to generate Android vectors instead of PNGs
+        generateVectorDrawables = true
+    }
+
+
     buildTypes {
         release {
             minifyEnabled false
@@ -35,12 +58,13 @@ dependencies {
 
     //Circle Image View
     implementation 'de.hdodenhof:circleimageview:3.0.0'
-    //Range Seekbar
-    implementation 'com.github.Jay-Goo:RangeSeekBar:v2.0.6'
 
     //Yahoo Rangebar
-
     implementation 'com.appyvet:materialrangebar:1.4.6'
+
+    //Easy SharedPreference
+
+    implementation 'com.pixplicity.easyprefs:library:1.9.0'
 
 
 }

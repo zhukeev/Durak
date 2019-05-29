@@ -1,30 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    tools:context="view.activity.NewsActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <WebView
-        android:id="@+id/webView"
-
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></WebView>
-
-    <FrameLayout
-        android:id="@+id/fragment_container_news"
-
-        android:layout_marginBottom="?attr/actionBarSize"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <include
-            android:id="@+id/settings_include"
-            layout="@layout/fragment_settings"/>
-    </FrameLayout>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bar"
@@ -64,8 +44,5 @@
             app:menu="@menu/bottom_nav_menu" />
 
     </FrameLayout>
-
-
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

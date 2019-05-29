@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void init() {
         loginButton = findViewById(R.id.btn_login);
+
         haveAnAccountButton = findViewById(R.id.btn_create_an_account);
 
         login = findViewById(R.id.ET_login);

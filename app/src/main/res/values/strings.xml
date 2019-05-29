@@ -40,4 +40,16 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lorem_ipsum">Lorem Ipsum</string>
+    <string name="download_photo">Загрузить фото</string>
+    <string name="_1000000">1000000</string>
+    <string name="russian">Русский</string>
+    <string name="sound">Звук</string>
+    <string name="vibration">Вибрация</string>
+    <string name="right_action">Кнопка действия справа</string>
+    <string name="turn_sort_cart">Развернуть сортировку карт</string>
+    <string name="sort_by_value">Сортировка по значению</string>
+    <string name="double_tap_action">Действие по двойному тапу</string>
+    <string name="always_my_cart_shirt">Всегда моя рубашка карт</string>
+    <string name="ready">готов</string>
 </resources>
