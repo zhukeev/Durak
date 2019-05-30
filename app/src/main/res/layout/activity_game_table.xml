@@ -46,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingStart="24dp"
-        android:src="@drawable/card_shirt"
+        android:src="@drawable/card_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -55,8 +55,8 @@
     <RelativeLayout
         android:id="@+id/card_board_players"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="32dp"
+        android:layout_marginTop="@dimen/margin_8dp"
+        android:layout_height="64dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/actionB_card_board">
@@ -65,12 +65,16 @@
             android:id="@+id/card_board_user1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/user_circlular" />
+            android:src="@drawable/user_circlular"
+            android:layout_marginBottom="-106dp"
+            />
 
         <ImageView
             android:id="@+id/card_board_user2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingBottom="-16dp"
+
             android:layout_marginStart="8dp"
             android:layout_toEndOf="@id/card_board_user1"
             android:src="@drawable/user_circlular" />
@@ -78,8 +82,8 @@
         <ImageView
             android:id="@+id/card_board_user3"
             android:layout_width="wrap_content"
-
             android:layout_height="wrap_content"
+            android:paddingTop="-16dp"
             android:layout_marginStart="8dp"
             android:layout_toEndOf="@id/card_board_user2"
             android:src="@drawable/user_circlular" />
@@ -87,7 +91,6 @@
         <ImageView
             android:id="@+id/card_board_user4"
             android:layout_width="wrap_content"
-
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_toEndOf="@id/card_board_user3"
@@ -157,6 +160,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+
             android:id="@+id/ll_8_h"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -172,7 +176,10 @@
                 />
         </RelativeLayout>
 
+
+
         <RelativeLayout
+            android:layout_alignParentEnd="true"
             android:id="@+id/ll_9_h"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">

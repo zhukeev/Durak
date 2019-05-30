@@ -1,5 +1,6 @@
 package view.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -20,6 +22,7 @@ import com.example.durak_od.R;
 
 import java.util.Objects;
 
+import utils.Cards;
 import utils.SharedPreferenceHelper;
 import view.activity.GameTableActivity;
 
@@ -55,10 +58,11 @@ public class NewGameDialog extends DialogFragment {
         init(v);
 
         setupRangeSeekbar();
-        setupCheckbox();
+//        setupCheckbox();
 
         return v;
     }
+
 
     private void init(View v) {
         rangeSeekBar = v.findViewById(R.id.rangebarNewGameDialog);
@@ -79,29 +83,13 @@ public class NewGameDialog extends DialogFragment {
         checkBoxPrivateGame = v.findViewById(R.id.private_game_Checkbox);
 
         checkBoxPassOn = v.findViewById(R.id.news_game_settings_passinOn_checkbox);
-        checkBoxPassOn.setButtonDrawable(R.drawable.passing_mode_active);
-        checkBoxPassOn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                buttonView.setButtonDrawable(buttonView.isChecked()?
-                        R.drawable.passing_mode_inactive:
-                        R.drawable.passing_mode_active);
-            }
-        });
-
 
 
         boolean passOn   = SharedPreferenceHelper.getBoolean(Objects.requireNonNull(getContext()),_PASS_ON,true);
         boolean privatePrivate   = SharedPreferenceHelper.getBoolean(Objects.requireNonNull(getContext()),_PRIVATE_GAME,true);
 
-
-
-
-        setCheck(checkBoxPassOn,passOn,_PASS_ON);
-        setCheck(checkBoxPrivateGame,privatePrivate,_PRIVATE_GAME);
-
-
+//        setCheck(checkBoxPassOn,passOn,_PASS_ON);
+//        setCheck(checkBoxPrivateGame,privatePrivate,_PRIVATE_GAME);
 
 
         newGameButton.setOnClickListener(new View.OnClickListener() {
@@ -114,30 +102,6 @@ public class NewGameDialog extends DialogFragment {
         });
     }
 
-    private void setupCheckbox() {
-
-         changeListener = new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                switch (buttonView.getId()) {
-
-                    case R.id.passinOn:
-                        setCheck(buttonView,isChecked,_PASS_ON);
-                        break;
-                    case R.id.private_game_Checkbox:
-                        setCheck(buttonView,isChecked,_PRIVATE_GAME);
-                        break;
-                }
-
-
-            }
-        };
-
-//        checkBoxPassOn.setOnCheckedChangeListener(changeListener);
-        checkBoxPrivateGame.setOnCheckedChangeListener(changeListener);
-
-    }
 
     private void setCheck(CompoundButton buttonView, boolean isChecked, String players) {
 

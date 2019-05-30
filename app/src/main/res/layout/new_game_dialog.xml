@@ -40,7 +40,7 @@
     <LinearLayout
         android:id="@+id/num_of_players"
         android:layout_width="match_parent"
-        android:layout_height="88dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/rangebarNewGameDialog"
         android:orientation="vertical"
         android:padding="8dp">
@@ -50,6 +50,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:paddingTop="8dp"
+            android:paddingBottom="@dimen/margin_16dp"
             android:text="@string/count_of_players"
             android:textColor="@color/appWhite"
             android:textSize="16sp" />
@@ -162,6 +163,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:paddingTop="8dp"
+            android:paddingBottom="16dp"
             android:text="@string/speed_of_game"
             android:textColor="@color/appWhite"
             android:textSize="16sp" />
@@ -211,7 +213,6 @@
                         android:drawableTop="@drawable/radio_buttons_speed_fast"
                         android:focusable="true"
                         android:gravity="center"
-                        android:shadowRadius="30"
                         android:text="@string/normal"
                         android:textColor="@color/appWhite" />
 
@@ -236,6 +237,8 @@
         android:paddingTop="8dp">
 
         <LinearLayout
+            android:gravity="top"
+            android:layout_gravity="top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.7"
@@ -245,10 +248,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_marginBottom="16dp"
                 android:text="@string/who_throws"
                 android:textColor="@color/appWhite"
-                android:textSize="12sp" />
+                android:textSize="16sp" />
 
 
             <RadioGroup
@@ -291,9 +295,9 @@
         </LinearLayout>
 
         <LinearLayout
+            android:gravity="top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -302,33 +306,34 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="top"
+                android:gravity="center"
                 android:layout_marginBottom="16dp"
 
                 android:text="@string/game_options"
                 android:textColor="@color/appWhite"
-                android:textSize="12sp" />
+                android:textSize="16sp" />
 
 
 
 
             <CheckBox
-                android:background="@color/transparent"
-                android:button="@drawable/passing_mode_active"
                 android:id="@+id/news_game_settings_passinOn_checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:button="@drawable/passin_on_checkbox"
                 android:clickable="true"
                 android:focusable="true" />
 
             <TextView
+                android:text="Переводной"
+                android:textColor="@color/appWhite"
+                android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Переводной"
-                android:textColor="@color/appWhite"
-                android:textSize="12sp" />
+                 />
         </LinearLayout>
 
     </LinearLayout>
@@ -339,27 +344,38 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <CheckBox
-            android:layout_marginStart="8dp"
-            android:id="@+id/private_game_Checkbox"
-            android:background="@drawable/private_game_icon"
+        <LinearLayout
+            android:layout_weight="1"
             android:layout_gravity="center"
-            android:textColor="@color/appWhite"
-            android:textSize="14sp"
-            android:layout_width="32dp"
-            android:layout_height="32dp" />
-        <TextView
-            android:text="@string/private_game"
-            android:textSize="14sp"
-            android:layout_gravity="center_vertical"
-            android:textColor="@color/appWhite"
-            android:padding="8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+
+            <CheckBox
+                android:layout_marginStart="8dp"
+                android:id="@+id/private_game_Checkbox"
+                android:button="@drawable/private_game_checkbox"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/margin_8dp"
+                android:textColor="@color/appWhite"
+                android:textSize="14sp"
+                android:layout_width="32dp"
+                android:layout_height="32dp" />
+            <TextView
+                android:text="@string/private_game"
+                android:textSize="14sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/appWhite"
+                android:padding="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
         <Button
+            android:layout_weight="1"
             android:id="@+id/createNewGameButton"
-            android:background="@drawable/button_rectangle"
             android:layout_gravity="right|center_vertical"
+            android:background="@drawable/button_rectangle"
             android:text="@string/create"
             android:textAlignment="center"
             android:textColor="@color/appWhite"

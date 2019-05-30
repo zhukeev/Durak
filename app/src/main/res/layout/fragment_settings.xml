@@ -124,90 +124,90 @@
         app:layout_constraintTop_toBottomOf="@id/download_profile_photo">
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
+            android:orientation="vertical"
             android:isScrollContainer="true"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-            <ImageView
-                android:id="@+id/app_lang_IV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/ic_russian_flag_36"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <TextView
-                android:id="@+id/app_lang_TV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/russian"
-                android:textColor="@color/appWhite"
-                android:textSize="16sp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/app_lang_IV"/>
-
-            <ImageView
-                android:id="@+id/divider1"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/ic_rectangle_horizontal_divider"
-                app:layout_constraintTop_toBottomOf="@id/app_lang_IV" />
+                android:layout_height="wrap_content">
 
-            <CheckBox
-                android:id="@+id/sound_settings_IV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/sound_32_combined"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/divider1" />
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/sound_settings_TV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/sound"
-                android:textColor="@color/appWhite"
-                android:textSize="16sp"
-                app:layout_constraintLeft_toRightOf="@id/sound_settings_IV"
-                app:layout_constraintTop_toBottomOf="@id/divider1" />
+                    <ImageView
+                        android:id="@+id/app_lang_IV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/ic_russian_flag_36">
 
-            <ImageView
-                android:id="@+id/divider2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/ic_rectangle_horizontal_divider"
-                app:layout_constraintTop_toBottomOf="@id/sound_settings_IV" />
+                    </ImageView>
+                    <TextView
 
-            <CheckBox
-                android:id="@+id/vibration_settings_IV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/vibration_36"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/divider2" />
+                        android:id="@+id/app_lang_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:text="@string/russian"
+                        android:textColor="@color/appWhite"
+                        android:textSize="16sp"/>
+                </LinearLayout>
 
-            <TextView
-                android:id="@+id/vibration_settings_TV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/vibration"
-                android:textColor="@color/appWhite"
-                android:textSize="16sp"
-                app:layout_constraintLeft_toRightOf="@id/sound_settings_IV"
-                app:layout_constraintTop_toBottomOf="@id/divider2" />
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <CheckBox
+                        android:id="@+id/sound_settings_IV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:button="@drawable/sound_checkbox"/>
+
+                    <TextView
+                        android:id="@+id/sound_settings_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:text="@string/sound"
+                        android:textColor="@color/appWhite"
+                        android:textSize="16sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <CheckBox
+                        android:id="@+id/vibration_settings_IV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:button="@drawable/vibration_checkbox" />
+
+                    <TextView
+                        android:id="@+id/vibration_settings_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:text="@string/vibration"
+                        android:textColor="@color/appWhite"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+
 
             <ImageView
                 android:id="@+id/divider3"
@@ -217,85 +217,101 @@
                 android:src="@drawable/ic_rectangle_horizontal_divider"
                 app:layout_constraintTop_toBottomOf="@id/vibration_settings_IV" />
 
-            <CheckBox
-                android:id="@+id/turn_sorting_settings_IV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/turn_sorting_32"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/divider3" />
-
-            <TextView
-                android:id="@+id/turn_sorting_settings_TV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/turn_sort_cart"
-                android:textColor="@color/appWhite"
-                android:textSize="16sp"
-                app:layout_constraintLeft_toRightOf="@id/sound_settings_IV"
-                app:layout_constraintTop_toBottomOf="@id/divider3" />
-
-            <ImageView
-                android:id="@+id/divider4"
+            <LinearLayout
+                android:gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/ic_rectangle_horizontal_divider"
-                app:layout_constraintTop_toBottomOf="@id/turn_sorting_settings_IV" />
+                android:layout_height="wrap_content">
 
-            <CheckBox
-                android:id="@+id/right_click_action_settings_IV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/right_action_button_36"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/divider4" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/right_click_action_settings_TV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/right_action"
-                android:textColor="@color/appWhite"
-                android:textSize="16sp"
-                app:layout_constraintLeft_toRightOf="@id/sound_settings_IV"
-                app:layout_constraintTop_toBottomOf="@id/divider4" />
 
-            <ImageView
-                android:id="@+id/divider5"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/ic_rectangle_horizontal_divider"
-                app:layout_constraintTop_toBottomOf="@id/right_click_action_settings_IV" />
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
 
 
-            <CheckBox
-                android:id="@+id/sort_by_value_settings_IV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/sort_by_value_36"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/divider5" />
+                    <CheckBox
+                        android:id="@+id/turn_sorting_settings_IV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:button="@drawable/double_tap_action_checkbox"/>
 
-            <TextView
-                android:id="@+id/sort_by_value_settings_TV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/sort_by_value"
-                android:textColor="@color/appWhite"
-                android:textSize="16sp"
-                app:layout_constraintLeft_toRightOf="@id/sound_settings_IV"
-                app:layout_constraintTop_toBottomOf="@id/divider5" />
+                    <TextView
+                        android:gravity="center"
+
+                        android:id="@+id/turn_sorting_settings_TV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:text="@string/turn_sort_cart"
+                        android:textColor="@color/appWhite"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+
+                    <CheckBox
+                        android:id="@+id/right_click_action_settings_IV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:button="@drawable/right_action_button_checkbox"/>
+
+                    <TextView
+                        android:gravity="center"
+                        android:id="@+id/right_click_action_settings_TV"
+                        android:layout_width="@dimen/_100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:text="@string/right_action"
+                        android:textColor="@color/appWhite"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <CheckBox
+                        android:id="@+id/sort_by_value_settings_IV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:button="@drawable/sort_by_value_checkbox"/>
+
+                    <TextView
+                        android:gravity="center"
+                        android:id="@+id/sort_by_value_settings_TV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:text="@string/sort_by_value"
+                        android:textColor="@color/appWhite"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+
 
             <ImageView
                 android:id="@+id/divider6"
@@ -306,59 +322,65 @@
                 app:layout_constraintTop_toBottomOf="@id/sort_by_value_settings_IV" />
 
 
-            <CheckBox
-                android:id="@+id/double_tap_action_settings_IV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/double_tap_action"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/divider6" />
-
-            <TextView
-                android:id="@+id/double_tap_action_settings_TV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/double_tap_action"
-                android:textColor="@color/appWhite"
-                android:textSize="16sp"
-                app:layout_constraintLeft_toRightOf="@id/sound_settings_IV"
-                app:layout_constraintTop_toBottomOf="@id/divider6" />
-
-
-            <ImageView
-                android:id="@+id/divider7"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/ic_rectangle_horizontal_divider"
-                app:layout_constraintTop_toBottomOf="@id/double_tap_action_settings_IV" />
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckBox
+                        android:id="@+id/double_tap_action_settings_IV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:button="@drawable/double_tap_action_checkbox" />
+
+                    <TextView
+                        android:id="@+id/double_tap_action_settings_TV"
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:text="@string/double_tap_action"
+                        android:textColor="@color/appWhite"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/always_cart_shirt_settings_IV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:button="@drawable/always_my_shirt_checkbox"/>
+
+                    <TextView
+                        android:id="@+id/always_cart_shirt_settings_TV"
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:text="@string/always_my_cart_shirt"
+                        android:textColor="@color/appWhite"
+                        android:textSize="16sp"/>
+                </LinearLayout>
+
+            </LinearLayout>
 
 
-            <CheckBox
-                android:id="@+id/always_cart_shirt_settings_IV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/double_tap_action"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/divider7" />
 
-            <TextView
-                android:id="@+id/always_cart_shirt_settings_TV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/always_my_cart_shirt"
-                android:textColor="@color/appWhite"
-                android:textSize="16sp"
-                app:layout_constraintLeft_toRightOf="@id/sound_settings_IV"
-                app:layout_constraintTop_toBottomOf="@id/divider7" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
 
     </ScrollView>

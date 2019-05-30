@@ -18,7 +18,7 @@ import com.example.durak_od.R;
 public class NewsActivity extends AppCompatActivity{
 
     WebView webView;
-    FrameLayout frameLayout;
+    FrameLayout frameLayout,includedSetting;
     CheckBox checkBoxSound,checkBoxVibration,checkBoxTurnSorting,checkBoxRightClick,checkBoxSortByValue,checkBoxAlwaysMyCartShirt,checkBoxDoubleAction;
     CompoundButton.OnCheckedChangeListener listener;
 
@@ -57,10 +57,11 @@ public class NewsActivity extends AppCompatActivity{
     private void init() {
         webView = findViewById(R.id.webView);
         frameLayout = findViewById(R.id.fragment_container_news);
+        includedSetting = findViewById(R.id.settings_include);
         checkBoxSound = frameLayout.findViewById(R.id.sound_settings_IV);
         checkBoxVibration = frameLayout.findViewById(R.id.vibration_settings_IV);
-        checkBoxDoubleAction = frameLayout.findViewById(R.id.vibration_settings_IV);
-        checkBoxAlwaysMyCartShirt = frameLayout.findViewById(R.id.vibration_settings_IV);
+        checkBoxDoubleAction = frameLayout.findViewById(R.id.double_tap_action_settings_IV);
+        checkBoxAlwaysMyCartShirt = frameLayout.findViewById(R.id.always_cart_shirt_settings_IV);
         checkBoxRightClick = frameLayout.findViewById(R.id.right_click_action_settings_IV);
         checkBoxSortByValue = frameLayout.findViewById(R.id.sort_by_value_settings_IV);
         checkBoxTurnSorting = frameLayout.findViewById(R.id.turn_sorting_settings_IV);
@@ -75,13 +76,6 @@ public class NewsActivity extends AppCompatActivity{
         checkBoxSortByValue.setOnCheckedChangeListener(listener);
         checkBoxTurnSorting.setOnCheckedChangeListener(listener);
 
-        checkBoxSound.setButtonDrawable(R.drawable.sound_32_combined);
-        checkBoxVibration.setButtonDrawable(R.drawable.vibration_36);
-        checkBoxDoubleAction.setButtonDrawable(R.drawable.double_tap_action);
-        checkBoxAlwaysMyCartShirt.setButtonDrawable(R.drawable.always_my_card_shirt);
-        checkBoxRightClick.setButtonDrawable(R.drawable.right_action_button_36);
-        checkBoxSortByValue.setButtonDrawable(R.drawable.sort_by_value_36);
-        checkBoxTurnSorting.setButtonDrawable(R.drawable.turn_sorting_32);
         frameLayout.setVisibility(View.INVISIBLE);
         webView.getSettings().setJavaScriptEnabled(true);
 
@@ -95,9 +89,6 @@ public class NewsActivity extends AppCompatActivity{
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 switch (buttonView.getId()){
                     case R.id.sound_settings_IV:
-                        checkBoxSound.setButtonDrawable(checkBoxSound.isChecked()?
-                                R.drawable.sound_32_combined:
-                                R.drawable.sound_32_combined_gray);
                         break;
 
                 }
