@@ -193,6 +193,23 @@
                 android:layout_height="158dp"
                 />
         </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ll_j_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <com.yinglan.shadowimageview.ShadowImageView
+                android:id="@+id/card_board_card5"
+                app:shadowRound="@dimen/margin_8dp"
+                android:layout_width="112dp"
+                android:layout_height="158dp">
+
+            </com.yinglan.shadowimageview.ShadowImageView>
+
+        </RelativeLayout>
+
     </RelativeLayout>
 
 

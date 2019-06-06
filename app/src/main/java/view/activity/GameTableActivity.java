@@ -5,6 +5,7 @@ import android.content.ClipData;
 import android.content.ClipDescription;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,16 +19,30 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 
 import com.example.durak_od.R;
+import com.yinglan.shadowimageview.ShadowImageView;
+
+import java.util.Arrays;
+
+import ak.sh.ay.oblique.ObliqueView;
+import model.Card;
+import model.CardDeck;
+import model.Pip;
+import model.Suit;
+
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class GameTableActivity extends AppCompatActivity implements View.OnDragListener, View.OnTouchListener {
 
     ImageView imageViewCard1, imageViewCard2, imageViewCardBoard;
     GridLayout gridLayout;
-    RelativeLayout relativeLayout_h_6, relativeLayout_h_7, relativeLayout_h_8, relativeLayout_h_9, relativeLayoutTheUsersCards;
+    RelativeLayout relativeLayout_h_6, relativeLayout_h_7,
+            relativeLayout_h_8,relativeLayout_h_j ,relativeLayout_h_9, relativeLayoutTheUsersCards;
     private ImageView imageViewCard3, imageViewCard4;
+    private ShadowImageView jack_card;
     private String TAG = "GameTableActivity";
 
     public static int dpToPx(int dp) {
@@ -37,6 +52,7 @@ public class GameTableActivity extends AppCompatActivity implements View.OnDragL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         setContentView(R.layout.activity_game_table);
         init();
 
@@ -46,6 +62,17 @@ public class GameTableActivity extends AppCompatActivity implements View.OnDragL
     }
 
     private void getCards() {
+        CardDeck deck = new CardDeck();
+
+        int i=1;
+        Card[][] cards = deck.getShuffledDeck();
+
+        for (Card[] card : cards ) {
+            for (Card card11 : card) {
+                Log.e(TAG, "getCards: "+card11.toString()+ " \n \n ------------------------ ---------------------  "+i++) ;
+
+            }
+        }
 
     }
 
@@ -63,9 +90,16 @@ public class GameTableActivity extends AppCompatActivity implements View.OnDragL
         relativeLayout_h_7 = findViewById(R.id.ll_7_h);
         relativeLayout_h_8 = findViewById(R.id.ll_8_h);
         relativeLayout_h_9 = findViewById(R.id.ll_9_h);
+        relativeLayout_h_j = findViewById(R.id.ll_j_h);
         relativeLayoutTheUsersCards = findViewById(R.id.card_board_users_cards);
 
+        jack_card = findViewById(R.id.card_board_card5);
+        jack_card.setImageResource(R.drawable.card_h_a);
+        jack_card.setImageRadius(50);
+//        jack_card.setImageShadowColor(Color.RED);
 
+
+        relativeLayout_h_j.setTag("" + R.id.ll_j_h);
         relativeLayout_h_6.setTag("" + R.id.ll_6_h);
         relativeLayout_h_7.setTag("" + R.id.ll_7_h);
         relativeLayout_h_8.setTag("" + R.id.ll_8_h);
@@ -89,7 +123,9 @@ public class GameTableActivity extends AppCompatActivity implements View.OnDragL
         relativeLayout_h_9.setOnDragListener(this);
         relativeLayout_h_9.setOnTouchListener(this);
 
-//        imageViewCardBoard.setOnDragListener(this);
+        relativeLayout_h_j.setOnDragListener(this);
+        relativeLayout_h_j.setOnTouchListener(this);
+
         gridLayout.setOnDragListener(this);
     }
 
@@ -107,10 +143,7 @@ public class GameTableActivity extends AppCompatActivity implements View.OnDragL
             case DragEvent.ACTION_DRAG_ENTERED:
                 if (!v.equals(null) && v.getId() != R.id.card_board_grid_layout) {
                     ViewGroup viewGroup = (ViewGroup) v;
-                    ImageView imageView = (ImageView) viewGroup.getChildAt(0);
-                    Log.e(TAG, "onDrag: ENTERED ON " + viewGroup.getClass().getSimpleName() + " ID " + viewGroup.getId());
-//                    imageView.setElevation(10);
-                    imageView.setColorFilter(Color.BLUE, PorterDuff.Mode.MULTIPLY);
+
                     v.invalidate();
                 }
                 return true;
@@ -119,8 +152,7 @@ public class GameTableActivity extends AppCompatActivity implements View.OnDragL
             case DragEvent.ACTION_DRAG_EXITED:
                 if (!v.equals(null) && v.getId() != R.id.card_board_grid_layout) {
                     ViewGroup viewGroup = (ViewGroup) v;
-                    ImageView imageView = (ImageView) viewGroup.getChildAt(0);
-                    imageView.clearColorFilter();
+
                     v.invalidate();
 
                 }
@@ -128,8 +160,7 @@ public class GameTableActivity extends AppCompatActivity implements View.OnDragL
             case DragEvent.ACTION_DRAG_ENDED:
                 if (!v.equals(null) && v.getId() != R.id.card_board_grid_layout) {
                     ViewGroup viewGroup = (ViewGroup) v;
-                    ImageView imageView = (ImageView) viewGroup.getChildAt(0);
-                    imageView.clearColorFilter();
+
                     v.invalidate();
 
                 }
@@ -171,19 +202,19 @@ public class GameTableActivity extends AppCompatActivity implements View.OnDragL
                         layout = (RelativeLayout) gridView.getChildAt(gridView.getChildCount() - 1);
 
                         ImageView imageView = (ImageView) layout.getChildAt(0);
-                       layout.setPadding(0,0,0,0);
+                        layout.setPadding(0, 0, 0, 0);
                         imageView.setRotation(-5);
                     } catch (ClassCastException e) {
 
-                        CardView layout = null;
 
+                        RelativeLayout layout = null;
+                        layout = (RelativeLayout) gridView.getChildAt(gridView.getChildCount() - 1);
 
-                        layout = (CardView) gridView.getChildAt(gridView.getChildCount() - 1);
+                        ShadowImageView imageView = (ShadowImageView) layout.getChildAt(0);
+                        layout.setPadding(0, 0, 0, 0);
+                        imageView.setRotation(-5);
 
-                        ImageView imageView = (ImageView) layout.getChildAt(0);
-
-//                        imageView.setRotation(-5);
-                        e.printStackTrace();
+                         e.printStackTrace();
                     }
 
                     v.setVisibility(View.VISIBLE);
@@ -201,28 +232,21 @@ public class GameTableActivity extends AppCompatActivity implements View.OnDragL
                         RelativeLayout layout = (RelativeLayout) v;
                         Log.e(TAG, "onDrag: " + layout.getChildCount());
 
-                        try {
-                            RelativeLayout relativeLayout = (RelativeLayout) viewState;
-                            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(relativeLayout.getLayoutParams());
+                        RelativeLayout relativeLayout = (RelativeLayout) viewState;
+                        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(relativeLayout.getLayoutParams());
 
-                            layoutParams.leftMargin = dpToPx(8);
+                        layoutParams.leftMargin = dpToPx(8);
 //                            layoutParams.topMargin = dpToPx(8);
-                            relativeLayout.setLayoutParams(layoutParams);
+                        relativeLayout.setLayoutParams(layoutParams);
 //                       relativeLayout.setPadding(dpToPx(8),dpToPx(8),0,0);
+                        try {
                             ImageView imageView = (ImageView) relativeLayout.getChildAt(0);
                             imageView.setRotation(10);
-                        } catch (ClassCastException e) {
-                            CardView cardView = (CardView) viewState;
-                            CardView.LayoutParams layoutParams = new CardView.LayoutParams(cardView.getLayoutParams());
 
-                            cardView.setRotation(10);
+                        } catch (Exception e) {
+                            ShadowImageView imageView = (ShadowImageView) relativeLayout.getChildAt(0);
 
-//                            layoutParams.leftMargin = dpToPx(8);
-                            layoutParams.topMargin = dpToPx(8);
-//                            cardView.setLayoutParams(layoutParams);
-//                       relativeLayout.setPadding(dpToPx(8),dpToPx(8),0,0);
-                            ImageView imageView = (ImageView) cardView.getChildAt(0);
-//                            imageView.setRotation(10);
+                            imageView.setRotation(10);
                             e.printStackTrace();
                         }
 

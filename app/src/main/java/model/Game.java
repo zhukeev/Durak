@@ -1,63 +1,25 @@
+
 package model;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Game {
 
-    boolean locked;
-    int cash;
-    int maxPlayers;
-    int curPlayers;
-    String name;
-    int cards;
-    boolean fairPlay;
-    boolean throwNeighbors;
-    boolean passingCards;
-    int speed;
+    private int id;
+    private String name;
+    private String username;
+    private String email;
+    private String phone;
+    private String website;
+    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    public Game(boolean locked, int cash, int maxPlayers, int curPlayers, String name, int cards, boolean fairPlay, boolean throwNeighbors, boolean passingCards, int speed) {
-        this.locked = locked;
-        this.cash = cash;
-        this.maxPlayers = maxPlayers;
-        this.curPlayers = curPlayers;
-        this.name = name;
-        this.cards = cards;
-        this.fairPlay = fairPlay;
-        this.throwNeighbors = throwNeighbors;
-        this.passingCards = passingCards;
-        this.speed = speed;
+    public int getId() {
+        return id;
     }
 
-    public Game() { }
-
-    public boolean isLocked() {
-        return locked;
-    }
-
-    public void setLocked(boolean locked) {
-        this.locked = locked;
-    }
-
-    public int getCash() {
-        return cash;
-    }
-
-    public void setCash(int cash) {
-        this.cash = cash;
-    }
-
-    public int getMaxPlayers() {
-        return maxPlayers;
-    }
-
-    public void setMaxPlayers(int maxPlayers) {
-        this.maxPlayers = maxPlayers;
-    }
-
-    public int getCurPlayers() {
-        return curPlayers;
-    }
-
-    public void setCurPlayers(int curPlayers) {
-        this.curPlayers = curPlayers;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -68,43 +30,44 @@ public class Game {
         this.name = name;
     }
 
-    public int getCards() {
-        return cards;
+    public String getUsername() {
+        return username;
     }
 
-    public void setCards(int cards) {
-        this.cards = cards;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public boolean isFairPlay() {
-        return fairPlay;
+    public String getEmail() {
+        return email;
     }
 
-    public void setFairPlay(boolean fairPlay) {
-        this.fairPlay = fairPlay;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public boolean isThrowNeighbors() {
-        return throwNeighbors;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setThrowNeighbors(boolean throwNeighbors) {
-        this.throwNeighbors = throwNeighbors;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public boolean isPassingCards() {
-        return passingCards;
+    public String getWebsite() {
+        return website;
     }
 
-    public void setPassingCards(boolean passingCards) {
-        this.passingCards = passingCards;
+    public void setWebsite(String website) {
+        this.website = website;
     }
 
-    public int getSpeed() {
-        return speed;
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
     }
 
-    public void setSpeed(int speed) {
-        this.speed = speed;
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
     }
+
 }

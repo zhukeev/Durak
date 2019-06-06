@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.trello.victor'
 
 android {
     compileSdkVersion 28
@@ -11,26 +10,6 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        //Trello config
-        vectorDrawables.useSupportLibrary = true
-    }
-
-    sourceSets {
-        main {
-            svg.srcDir 'src/main/svg'
-        }
-    }
-
-
-    victor {
-        // Any assets defined in relative terms needs a base DPI specified
-        svgDpi = 72
-
-        // Do not generate these densities for SVG assets
-        excludeDensities = ['ldpi', 'xxxhdpi']
-
-        // Set this to "true" if you want to generate Android vectors instead of PNGs
-        generateVectorDrawables = true
     }
 
 
@@ -59,12 +38,27 @@ dependencies {
     //Circle Image View
     implementation 'de.hdodenhof:circleimageview:3.0.0'
 
-    //Yahoo Rangebar
+    //Material Rangebar
     implementation 'com.appyvet:materialrangebar:1.4.6'
 
     //Easy SharedPreference
-
     implementation 'com.pixplicity.easyprefs:library:1.9.0'
+
+    //Oblique View
+    implementation  'com.fxn769:oblique:2.0'
+
+    //Image Elevation
+    implementation 'com.yinglan.shadowimageview:shadowimageview:1.0.4'
+
+    //Retrofilt 2
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+
+
+    //RxJava RxAndroid
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.9'
 
 
 }
